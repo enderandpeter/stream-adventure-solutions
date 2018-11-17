@@ -1,19 +1,14 @@
- var http = require('http');
- var through = require('through2');
- 
- var port = process.argv[2];
- 
- var server = http.createServer(function (request, response) {
+ const http = require('http');
+ const through = require('through2');
+
+ const port = process.argv[2];
+
+ const server = http.createServer((request, response) => {
      if(request.method === 'POST'){
-		  function write(buffer, encoding, next){
-			 this.push(buffer.toString().toUpperCase());
-			 next();
-		 }
-		 
-		 var tr = through(write);
-		 
-		 request.pipe(tr).pipe(response);
+		 request.pipe(through(function write(buffer, encoding, next){
+      this.push(buffer.toString().toUpperCase());
+      next();
+    })).pipe(response);
 	 }
-	
  });
  server.listen(port);

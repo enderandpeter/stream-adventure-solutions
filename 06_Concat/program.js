@@ -1,5 +1,5 @@
-var concat = require('concat-stream');
+const concat = require('concat-stream');
 
-process.stdin.pipe(concat(function(input){
-	console.log(input.toString().split('').reverse().join(''));
-}));
+process.stdin.pipe(concat((input) => console.log(
+	input.toString().split('').reverse().join('')
+)));

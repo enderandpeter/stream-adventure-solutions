@@ -1,0 +1,11 @@
+{
+  "name": "duplexer-redux",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "stream-combiner": "*",
+    "through2": "*",
+    "split": "*",
+    "zlib": "*"
+  }
+}

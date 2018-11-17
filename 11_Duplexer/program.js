@@ -1,9 +1,9 @@
-var duplexer2 = require('duplexer2');
+const duplexer2 = require('duplexer2');
 
-var spawn = require('child_process').spawn;
+const spawn = require('child_process').spawn;
 
-module.exports = function (cmd, args) {
+module.exports = (cmd, args) => {
    const ps = spawn(cmd, args);
-   
+
    return duplexer2(ps.stdin, ps.stdout);
 };

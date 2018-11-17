@@ -1,19 +1,13 @@
-function to_upper(buffer, enc, next){
+const trumpet = require('trumpet');
+const through = require('through2');
+
+const tr = trumpet();
+
+const trumpetStream = tr.select('.loud').createStream();
+
+trumpetStream.pipe(through(function to_upper(buffer, enc, next){
 	this.push(buffer.toString().toUpperCase());
 	next();
-}
+})).pipe(trumpetStream);
 
-var trumpet = require('trumpet');
-var through = require('through2');
-
-var tr = trumpet();
-
-tr.pipe(process.stdout);
-var trumpetStream = tr.select('.loud').createStream();
-
-var throughStream = through(to_upper);
-trumpetStream.pipe(throughStream).pipe(trumpetStream);
-
-process.stdin.pipe(tr);
-
-
+process.stdin.pipe(tr).pipe(process.stdout);

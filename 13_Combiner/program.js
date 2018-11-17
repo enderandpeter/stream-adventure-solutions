@@ -1,37 +1,37 @@
-var combine = require('stream-combiner')
-var through = require('through2');
-var split = require('split');
-var zlib = require('zlib');
+const combine = require('stream-combiner')
+const through = require('through2');
+const split = require('split');
+const zlib = require('zlib');
 
 module.exports = function () {
-    var bookList;
-    
+    let bookList;
+
     function pushBookToList(stream){
         if(bookList){
             stream.push(JSON.stringify(bookList) + '\n');
         }
     }
-    
+
     function write(line, _, next){
         if(line.length === 0){
             return next();
         }
-        var lineObj = JSON.parse(line);
-        
+        const lineObj = JSON.parse(line);
+
         if(lineObj.type === 'genre'){
-            pushBookToList(this);        
+            pushBookToList(this);
             bookList = {name: lineObj.name, books: [] };
         } else if(lineObj.type === 'book'){
-            
+
             bookList.books.push(lineObj.name);
         }
         next();
     }
     function end(done){
-        pushBookToList(this);  
+        pushBookToList(this);
         done();
-    }        
-    
+    }
+
     return combine(
         split(),
         through(write, end),
