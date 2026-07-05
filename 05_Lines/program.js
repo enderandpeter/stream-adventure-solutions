@@ -1,11 +1,11 @@
-const split = require('split');
-const through = require('through2');
+import split from 'split2';
+import { transform } from 'through2'
 
 let linecount = 1;
 
 process.stdin
  .pipe(split())
- .pipe(through(function (line, encoding, next) {
+ .pipe(transform(function (line, encoding, next) {
 	 let output = '';
 
 	 if(linecount % 2){

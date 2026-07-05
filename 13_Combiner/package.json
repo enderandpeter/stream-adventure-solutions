@@ -1,11 +1,12 @@
 {
-  "name": "duplexer-redux",
+  "name": "combiner",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "split2": "^4",
     "stream-combiner": "*",
-    "through2": "*",
-    "split": "*",
-    "zlib": "*"
-  }
+    "through2": "^5",
+    "zlib": "^1"
+  },
+  "packageManager": "yarn@4.17.0"
 }

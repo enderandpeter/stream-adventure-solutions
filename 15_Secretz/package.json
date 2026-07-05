@@ -2,9 +2,11 @@
   "name": "secretz",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "dependencies": {
-    "concat-stream": "*",
-    "tar": "*",
-    "zlib": "*"
-  }
+    "concat-stream": "^2",
+    "tar": "^7",
+    "zlib": "^1"
+  },
+  "packageManager": "yarn@4.17.0"
 }

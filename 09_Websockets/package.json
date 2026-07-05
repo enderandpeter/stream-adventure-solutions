@@ -2,7 +2,9 @@
   "name": "websockets",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "dependencies": {
-    "websocket-stream": "*"
-  }
+    "websocket-stream": "^5"
+  },
+  "packageManager": "yarn@4.17.0"
 }

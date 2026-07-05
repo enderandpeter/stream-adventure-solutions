@@ -2,8 +2,10 @@
   "name": "lines",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "dependencies": {
-    "through2": "*",
-    "split": "*"
-  }
+    "split2": "^4",
+    "through2": "^5"
+  },
+  "packageManager": "yarn@4.17.0"
 }

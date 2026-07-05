@@ -2,7 +2,9 @@
   "name": "concat",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "concat-stream": "*"
-  }
+  },
+  "packageManager": "yarn@4.17.0"
 }

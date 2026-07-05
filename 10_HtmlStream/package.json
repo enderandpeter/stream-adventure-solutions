@@ -2,8 +2,10 @@
   "name": "http-stream",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "dependencies": {
-    "trumpet": "*",
-    "through2": "*"
-  }
+    "through2": "^5",
+    "trumpet": "^1"
+  },
+  "packageManager": "yarn@4.17.0"
 }

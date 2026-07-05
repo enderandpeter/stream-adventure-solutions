@@ -1,3 +1,7 @@
-const request = require('request');
-const r = request.post('http://localhost:8099');
-process.stdin.pipe(r).pipe(process.stdout);
+import { request } from "node:http";
+const req = request('http://localhost:8099', { method: 'POST' }, (res) => {
+   res.pipe(process.stdout)
+});
+
+process.stdin.pipe(req)
+req.end()

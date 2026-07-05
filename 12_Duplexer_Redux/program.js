@@ -1,5 +1,5 @@
-var duplexer2 = require('duplexer2');
-var through2 = require('through2');
+const duplexer2 = require('duplexer2');
+const { transform } = require('through2');
 
 module.exports = (counter) => {
     let counterObj = {};
@@ -12,7 +12,7 @@ module.exports = (counter) => {
         counter.setCounts(counterObj);
         done();
     }
-    const input = through2({objectMode: true}, write, end);
+    const input = transform({objectMode: true}, write, end);
 
     return duplexer2({objectMode: true}, input, counter);
 };
